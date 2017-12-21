@@ -6,8 +6,8 @@ Demo-Framework base to : https://github.com/gin-gonic/gin
 And others. 
 Thanks for...
 
-示例主体框架使用gin-framework,第三方包在demopacket完整打包,解压后可使用.
-ps:直接解压demopacket包按结构存放即可.使用的都是开源包(后续列出来)
+示例主体框架使用gin-framework.
+ps:使用的都是开源包,代码同步后,请检查包get的完整性
 
 
 目录结构:
@@ -55,7 +55,7 @@ ps:有些写的仓促比如config.go,lang.go后期会整合进来<br>
 
 验证器:
 这里验证器使用了可配置化处理,开发者可以轻松配置验证规则，无需繁琐封装,支持中英文切换,具体参阅代码.
-基于thedevsaddam/govalidator进行上层封装!
+基于thedevsaddam/govalidator(具体请结合此项目阅读代码里的验证方法)进行上层封装!
 
 
 
