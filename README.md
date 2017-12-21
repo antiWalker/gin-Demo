@@ -33,7 +33,7 @@ ps:使用的都是开源包,代码同步后,请检查包get的完整性
 ps:有些写的仓促比如config.go,lang.go后期会整合进来<br> 
 框架使用传统mvc的设计模式进行构建:控制,模型,业务,验证等已分离.具体请看modules。
 
-数据库连接示例:
+数据库连接示例(请追踪代码选择合适的api):
 ```go
     Handler := mysql.GetDefault()
 ```
