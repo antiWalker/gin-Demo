@@ -19,9 +19,9 @@ func Login(c *gin.Context) (*models.User, interface{}, interface{}, bool) {
 
 	var conditionField string
 	conditionField = "`moble` = ?"
-	UserModel := mysql.GetDefault()
+	Handler := mysql.GetDefault()
 	var User = models.User{}
-	reply, _ := UserModel.Cols("`id`,`password`,`username`,`moble`,`status`,`truename`").Where(conditionField, username).Get(&User)
+	reply, _ := Handler.Cols("`id`,`password`,`username`,`moble`,`status`,`truename`").Where(conditionField, username).Get(&User)
 	if !reply {
 		return &User, lang.GetLangTip(c, "Index", "userNonExist"), "", false
 	}

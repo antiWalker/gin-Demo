@@ -10,7 +10,7 @@ func getHandle(name string) *xorm.Engine {
 }
 
 func GetDefault() *xorm.Engine {
-	var dConf = "btchanges"
+	var dConf = "change"
 	return hsmysql.Conn(dConf)
 }
 
