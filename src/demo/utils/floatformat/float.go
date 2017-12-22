@@ -20,3 +20,9 @@ func Float64Rand(v float64, dig int) float64 {
 	val := fmt.Sprintf("%0."+cDig+"f", v)
 	return StringToFloat64(val)
 }
+
+//浮点数串化(左边是整数位置,右边是小数位,dig参数控制)
+func FloatToFDig(floVal float64, dig int) string {
+	return fmt.Sprintf("%10."+strconv.Itoa(dig)+"f", floVal) //十位整数，8位小数
+}
+
