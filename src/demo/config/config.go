@@ -7,12 +7,11 @@ import (
 	"path/filepath"
 	"runtime"
 	"strings"
-
 	"github.com/zpatrick/go-config"
 )
 
 var gopath string
-var wd string
+var currPath string
 var err error
 var env string
 var port string
@@ -23,9 +22,9 @@ var configFileName = "config"
 
 func init() {
 	if runtime.GOOS == "windows" || runtime.GOOS == "darwin" {
-		wd = getWinConfiPath()
+		currPath = getWinConfiPath()
 	} else {
-		wd = getLinuxConfiPath()
+		currPath = getLinuxConfiPath()
 	}
 
 	env = getEnv()
@@ -81,7 +80,7 @@ func GetPORT() string {
 }
 
 func getEnv() string {
-	filepath := wd + "/env.ini"
+	filepath := currPath + "/env.ini"
 	iniFile := config.NewINIFile(filepath)
 	c := config.NewConfig([]config.Provider{iniFile})
 	env, _ = c.String("APP.ENV")
@@ -90,7 +89,7 @@ func getEnv() string {
 }
 
 func GetGconfig(gName string, key string) string {
-	filepath := wd + "/" + env + ".ini"
+	filepath := currPath + "/" + env + ".ini"
 	iniFile := config.NewINIFile(filepath)
 	envHandle = config.NewConfig([]config.Provider{iniFile})
 	result, _ := envHandle.String(gName + "." + key)
@@ -98,13 +97,13 @@ func GetGconfig(gName string, key string) string {
 }
 
 func getSettings() {
-	filepath := wd + "/" + env + ".ini"
+	filepath := currPath + "/" + env + ".ini"
 	iniFile := config.NewINIFile(filepath)
 	envHandle = config.NewConfig([]config.Provider{iniFile})
 }
 
 func getCantants() {
-	filepath := wd + "/config.ini"
+	filepath := currPath + "/config.ini"
 	// fmt.Println(filepath)
 	iniFile := config.NewINIFile(filepath)
 	configHandle = config.NewConfig([]config.Provider{iniFile})
